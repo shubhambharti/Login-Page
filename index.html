@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:rgb(220, 236, 251);
+        }
+        .container{
+            width: 400px;
+            height: 500px;
+            background-image: linear-gradient(180deg,#a6cffc,#e3f0f9);
+            margin: auto;
+            margin-top: 3rem;
+            border-radius: 15px;
+            padding: 20px;
+        }
+        form{
+            margin: 12px;
+        }
+        label{
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+        tr td:nth-child(1){
+            width: 50%;
+            padding: 8px 0;
+        }
+        tr td:nth-child(2){
+            width: 50%;
+        }
+        input{
+            height: 22px;
+            width: 230px;
+            outline: none;
+            border: none;
+            border-radius: 10px;
+        }
+        button{
+            width: 100px; 
+            height: 50px;
+            outline: none;
+            border: none;
+            margin: 50px 140px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+        .popup {
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: none;
+        }
+        .popup-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888888;
+            width: 30%;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">Form</h1>
+        <form action="" >
+            <table>
+                <tr>
+                    <td ><label>Name</label></td>
+                    <td><input type="text" id="name"></td>
+                </tr>
+                <tr>
+                    <td><label>Address</label></td>
+                    <td><input type="text" id="address"></td>
+                </tr>
+                <tr>
+                    <td><label>Phone</label></td>
+                    <td><input type="text" id="phone"></td>
+                </tr>
+                <tr>
+                    <td><label>Email</label></td>
+                    <td><input type="text" id="email"></td>
+                </tr>
+                <tr>
+                    <td><label>Gender</label></td>
+                </tr>
+                <tr>
+                    <td><input type="radio" style="width: 20px;" name="gender" value="Male"><b>Male</b></input></td>
+                    <td><input type="radio" style="width: 20px;" name="gender" value="Female"><b>Female</b></input></td>
+                </tr>
+            </table>
+            <button onclick="callvalue()">Preview</button>
+        </form>
+
+    </div>
+    
+    <script>
+        
+        function callvalue(){
+            let name= document.getElementById("name").value;
+            let phone= document.getElementById("phone").value;
+            let address= document.getElementById("address").value;
+            let email= document.getElementById("email").value;
+            let gender = document.querySelector('input[name="gender"]:checked').value;
+            preview=window.open("","Preview","width=800,heigth=800");
+
+            preview.document.write("Name : "+name+"<br>");
+            preview.document.write("Phone :" +phone+"<br>");
+            preview.document.write("address :" +address+"<br>");
+            preview.document.write("email :" +email+"<br>");
+            preview.document.write("Gender :" +gender+"<br>");
+            preview.document.bgColor='beige';
+            
+            // document.writeln("Name:"+name+"<br>");
+            // document.writeln("Phone:"+phone+"<br>");
+            // document.writeln("Address:"+address+"<br>");
+            // document.writeln("Email:"+email+"<br>");
+            // document.writeln("Gender: " + gender + "<br>");
+        }
+    </script>
+</body>
+</html>
